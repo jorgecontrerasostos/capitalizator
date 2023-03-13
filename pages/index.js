@@ -1,5 +1,8 @@
 import Head from "next/head";
-import { Text } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
+import { Navbar } from "@/components/Navbar";
+import { Main } from "@/components/Main";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -10,9 +13,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Text>This Works</Text>
-      </main>
+      <Flex direction="column" flex="1">
+        <Navbar />
+        <Main />
+        <Footer />
+      </Flex>
     </>
   );
 }
