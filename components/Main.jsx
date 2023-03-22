@@ -6,8 +6,15 @@ import {
   Input,
   ButtonGroup,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const Main = props => {
+  const [title, setTitle] = useState();
+
+  const capitalizeHeading = e => {
+    setTitle(e.target.value);
+  };
+
   return (
     <Flex
       as="main"
@@ -26,8 +33,19 @@ export const Main = props => {
         </Heading>
       </Box>
       <Box width="2xl" maxWidth={{ base: "xs", md: "md", lg: "2xl" }}>
-        <Input placeholder="insert your title here" type="text" />
-        <Input disabled type="text" mt={6} variant="filled" border="1px" />
+        <Input
+          placeholder="insert your title here"
+          type="text"
+          onChange={capitalizeHeading}
+        />
+        <Input
+          disabled
+          type="text"
+          mt={6}
+          variant="filled"
+          border="1px"
+          value={title}
+        />
       </Box>
       <ButtonGroup>
         <Button colorScheme="teal" mt={6}>
