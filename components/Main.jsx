@@ -4,14 +4,15 @@ import {
   Flex,
   Heading,
   Input,
-  ButtonGroup,
-} from "@chakra-ui/react";
-import { useState } from "react";
+  ButtonGroup
+} from '@chakra-ui/react';
+import { useState } from 'react';
+import noCapitalizeWords from '@/data/noCapitalizeWords';
 
-export const Main = props => {
-  const [title, setTitle] = useState();
+export const Main = (props) => {
+  const [title, setTitle] = useState('');
 
-  const capitalizeHeading = e => {
+  const capitalizeHeading = (e) => {
     setTitle(e.target.value);
   };
 
@@ -32,11 +33,12 @@ export const Main = props => {
           Paste your title below
         </Heading>
       </Box>
-      <Box width="2xl" maxWidth={{ base: "xs", md: "md", lg: "2xl" }}>
+      <Box width="2xl" maxWidth={{ base: 'xs', md: 'md', lg: '2xl' }}>
         <Input
           placeholder="insert your title here"
           type="text"
           onChange={capitalizeHeading}
+          value={title}
         />
         <Input
           disabled
@@ -51,7 +53,7 @@ export const Main = props => {
         <Button colorScheme="teal" mt={6}>
           Copy to Clipboard
         </Button>
-        <Button colorScheme="teal" mt={6}>
+        <Button colorScheme="teal" mt={6} onClick={() => setTitle('')}>
           Clear Fields
         </Button>
       </ButtonGroup>
